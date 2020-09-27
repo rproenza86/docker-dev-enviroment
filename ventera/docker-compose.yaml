@@ -1,0 +1,6 @@
+version: '3'
+services:
+  test1:
+    image: rproenza86/utilbox
+    container_name: test1
+    restart: always
