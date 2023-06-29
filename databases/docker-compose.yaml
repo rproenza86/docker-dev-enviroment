@@ -24,8 +24,9 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=docker
     restart: always
   mysql:
+    platform: linux/x86_64
     container_name: mysql
-    image: mysql/mysql-server:8.0.23
+    image: mysql:5.7.35
     volumes:
       - ./volumes/mysql:/var/lib/mysql
     restart: always
@@ -36,3 +37,5 @@ services:
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
+
+      # docker run --name mysql --platform=linux/x86_64 -e MYSQL_ROOT_PASSWORD=somedrupal -e MYSQL_DATABASE=drupal -e MYSQL_USER=drupal -e MYSQL_PASSWORD=drupal -p 3306:3306  -d mysql:5.7.35
